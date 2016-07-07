@@ -22,4 +22,19 @@ public class XYInput implements Input {
     public int getY() {
         return _y;
     }
+
+    @Override
+    public int getZ() {
+        return 0;
+    }
+
+    @Override
+    public int getRadius() {
+        return 0;
+    }
+
+    @Override
+    public int getCount() {
+        return 1;
+    }
 }

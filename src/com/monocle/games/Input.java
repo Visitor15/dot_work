@@ -8,4 +8,10 @@ public interface Input {
     int getX();
 
     int getY();
+    
+    int getZ();
+
+    int getRadius();
+
+    int getCount();
 }

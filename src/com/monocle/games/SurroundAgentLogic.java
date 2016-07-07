@@ -33,16 +33,18 @@ public class SurroundAgentLogic implements GameLogic {
 
     @Override
     public Collection<Agent> runLogic(final Input input) {
-        Agent[] agents = new Agent[_random.nextInt(_agentCount - 1) + 1];
-//        Agent[] agents = new Agent[_agentCount];
+//        Agent[] agents = new Agent[_random.nextInt(_agentCount - 1) + 1];
+        Agent[] agents = new Agent[input.getCount()];
         _theta      = (360.0 / agents.length);
         double  beta;
-        int     x, y;
+        int     x, y, z;
+
         for(int i = 0; i < agents.length; i++) {
             beta        = Math.toRadians(i * _theta);
-            x           = (int) (input.getX() + (_distance * Math.cos(beta)));
-            y           = (int) (input.getY() + (_distance * Math.sin(beta)));
-            agents[i]   = new Agent(x, y);
+            x           = (int) (input.getX() + (input.getRadius() * Math.cos(beta)));
+            y           = (int) (input.getY() + (input.getRadius() * Math.sin(beta)));
+            z           = (int) (input.getZ() + (input.getRadius() * Math.cos(beta)));
+            agents[i]   = new Agent(x, y, z);
         }
         return Arrays.asList(agents);
     }
